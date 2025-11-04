@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Video - Addison Manley</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #3498db 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #3498db 100%);
+            z-index: 1;
+        }
+
+        .video-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .portfolio-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #bdc3c7;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .welcome-text {
+            display: none;
+        }
+
+        .name-highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 3s forwards;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 4;
+            opacity: 1;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: white;
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 25px solid #2c3e50;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 6px;
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: #3498db;
+            width: 0%;
+            z-index: 3;
+            transition: width 0.1s linear;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            border-right: 2px solid #3498db;
+            white-space: nowrap;
+            animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #3498db; }
+        }
+
+        .video-info {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            z-index: 3;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .welcome-text {
+                font-size: 1.4rem;
+            }
+            
+            .video-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+        <div class="video-container">
+        <div class="video-background"></div>
+        <div class="video-overlay"></div>
+        
+        <div class="video-info">
+            <span id="time-display">00:00 / 00:08</span>
+        </div>
+        
+        <div class="play-button" id="playButton" onclick="playVideo()">
+            <div class="play-icon"></div>
+        </div>
+        
+        <div class="video-content" id="videoContent">
+            <h1 class="portfolio-title">Professional Portfolio of Addison Manley</h1>
+            <p class="subtitle">Welcome!</p>
+        </div>
+        
+        <div class="progress-bar" id="progressBar"></div>
+
+    </div>
+
+    <script>
+        let isPlaying = false;
+        let currentTime = 0;
+        const totalDuration = 8; // 8 seconds
+        let progressInterval;
+        let speechSynthesis = window.speechSynthesis;
+        let voiceoverText = "Hello, my name is Addison Manley. Welcome to my website. Hope you enjoy!";
+
+        function playVideo() {
+            if (isPlaying) return;
+            
+            isPlaying = true;
+            document.getElementById('playButton').style.display = 'none';
+            document.getElementById('videoContent').style.display = 'block';
+            
+            // Start progress bar animation
+            progressInterval = setInterval(updateProgress, 100);
+            
+            // Start voiceover
+            setTimeout(() => {
+                playVoiceover();
+            }, 1000);
+        }
+
+        function playVoiceover() {
+            // Stop any existing speech
+            speechSynthesis.cancel();
+            
+            // Create speech utterance
+            const utterance = new SpeechSynthesisUtterance(voiceoverText);
+            
+            // Configure voice settings for a more natural sound
+            utterance.rate = 0.9; // Slightly slower for clarity
+            utterance.pitch = 1.1; // Slightly higher pitch for female voice
+            utterance.volume = 0.8; // Good volume level
+            
+            // Try to use a female voice if available
+            const voices = speechSynthesis.getVoices();
+            const femaleVoice = voices.find(voice => 
+                voice.name.includes('Female') || 
+                voice.name.includes('Woman') || 
+                voice.name.includes('Google UK English Female') ||
+                voice.name.includes('Microsoft Zira Desktop') ||
+                voice.name.includes('Microsoft Hazel Desktop') ||
+                voice.name.includes('Samantha') ||
+                voice.name.includes('Karen') ||
+                voice.name.includes('Moira') ||
+                voice.name.includes('Tessa') ||
+                voice.name.includes('Veena') ||
+                voice.name.includes('Fiona') ||
+                voice.name.includes('Susan') ||
+                voice.name.includes('Victoria') ||
+                voice.name.includes('Alex') ||
+                voice.name.includes('Allison') ||
+                voice.name.includes('Ava') ||
+                voice.name.includes('Samantha') ||
+                voice.name.includes('Serena') ||
+                voice.name.includes('Tessa') ||
+                voice.name.includes('Veena') ||
+                voice.name.includes('Victoria') ||
+                voice.name.includes('Zira')
+            );
+            
+            if (femaleVoice) {
+                utterance.voice = femaleVoice;
+            } else {
+                // Fallback: try to find any voice that sounds more feminine
+                const alternativeVoice = voices.find(voice => 
+                    voice.name.includes('Google') || 
+                    voice.name.includes('Microsoft') || 
+                    voice.name.includes('Natural') ||
+                    voice.name.includes('Enhanced')
+                );
+                if (alternativeVoice) {
+                    utterance.voice = alternativeVoice;
+                }
+            }
+            
+            // Play the voiceover
+            speechSynthesis.speak(utterance);
+        }
+
+        function updateProgress() {
+            currentTime += 0.1;
+            const progress = (currentTime / totalDuration) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            // Update time display
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = Math.floor(currentTime % 60);
+            const totalMinutes = Math.floor(totalDuration / 60);
+            const totalSeconds = Math.floor(totalDuration % 60);
+            
+            document.getElementById('time-display').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} / ${totalMinutes.toString().padStart(2, '0')}:${totalSeconds.toString().padStart(2, '0')}`;
+            
+            if (currentTime >= totalDuration) {
+                clearInterval(progressInterval);
+                showControls();
+            }
+        }
+
+        // Load voices when the page loads
+        function loadVoices() {
+            const voices = speechSynthesis.getVoices();
+            if (voices.length === 0) {
+                // Voices might not be loaded yet, try again after a short delay
+                setTimeout(loadVoices, 100);
+            }
+        }
+
+        // Load voices on page load
+        window.addEventListener('load', loadVoices);
+
+        function showControls() {
+            // Controls removed - video ends without showing buttons
+        }
+
+        // Remove auto-play - video only starts when play button is clicked
+
+        // Add audio controls
+        function toggleMute() {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+            } else {
+                playVoiceover();
+            }
+        }
+
+        // Add mute/unmute button
+        function addAudioControls() {
+            const audioBtn = document.createElement('button');
+            audioBtn.innerHTML = '🔊';
+            audioBtn.style.cssText = `
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                border: none;
+                padding: 0.5rem;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 1.2rem;
+                z-index: 4;
+            `;
+            audioBtn.onclick = toggleMute;
+            document.querySelector('.video-container').appendChild(audioBtn);
+        }
+
+        // Add audio controls when page loads
+        window.addEventListener('load', addAudioControls);
+
+        // Add keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                if (!isPlaying) {
+                    playVideo();
+                }
+            }
+        });
+
+        // Remove click to play anywhere - only play button works
+    </script>
+</body>
+</html>

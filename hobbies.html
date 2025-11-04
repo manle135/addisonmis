@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies - Addison Manley</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafbfc;
+            color: #2c3e50;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+            min-height: 100vh;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 0;
+            padding: 0;
+            background: #34495e;
+        }
+
+        .nav-button {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .nav-button.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-bottom-color: #3498db;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #bdc3c7;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .header .title {
+            font-size: 1.1rem;
+            color: #ecf0f1;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .main-content {
+            padding: 4rem 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .content-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            border: 1px solid #e8ecf0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .hobby-container {
+            display: flex;
+            align-items: start;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+        }
+
+        .hobby-image {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-image:hover {
+            transform: scale(1.02);
+        }
+
+        .hobby-text {
+            flex: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #495057;
+        }
+
+        @media (max-width: 768px) {
+            .header-section {
+                padding: 2rem 1rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .hobby-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hobby-image {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            margin: 0 10px;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, #2980b9, #1f5f8b);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navigation">
+            <a href="index.html" class="nav-button">Home</a>
+            <a href="hobbies.html" class="nav-button active">Hobbies</a>
+            <a href="discover.html" class="nav-button">Discover</a>
+            <a href="resume.html" class="nav-button">Resume</a>
+            <a href="career.html" class="nav-button">Career Interests</a>
+            <a href="game.html" class="nav-button">Game</a>
+        </nav>
+
+        <header class="header-section">
+            <div class="header">
+                <div class="title">Personal Interests</div>
+                <h1>My Hobbies</h1>
+                <div class="subtitle">Activities that enrich my life and personal growth</div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <section class="content-section">
+                <h2>Tennis</h2>
+                <div class="card">
+                    <div class="hobby-container">
+                        <div class="hobby-text">
+                            <strong>Tennis</strong> has been a cornerstone of my personal development and family bonding. I grew up playing this sport and it quickly became one of my favorite activities. I joined my high school's varsity team, where I experienced both the competitive thrill and the invaluable social aspects of team sports. Some of my closest friendships were forged through being teammates, creating lasting bonds that extend far beyond the court.
+                            <br><br>
+                            What makes tennis particularly special to me is its role in strengthening family relationships. My father served as my coach, and my sister was also on the team, making it a true family affair. This shared passion has been instrumental in building the close relationship I have with my father, and I'm deeply grateful for the opportunity to share this love of the sport with my family.
+                        </div>
+                        <img src="media/tennis hobby picture for hobbies page.jpg" alt="Close-up of a person in a striped shirt hitting a tennis ball with a racket on an indoor court." class="hobby-image">
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Reading</h2>
+                <div class="card">
+                    <div class="hobby-container">
+                        <img src="media/reading hobby picture for hobbies page.jpg" alt="Close-up of a person holding an open book while sitting at a café table." class="hobby-image">
+                        <div class="hobby-text">
+                            <strong>Reading</strong> provides me with entertainment that feels both engaging and intellectually productive, offering something that television simply cannot match. While I enjoy exploring various literary genres, <strong>mystery and thriller novels</strong> hold a special place in my heart. I've discovered that stepping outside my comfort zone with different book genres can lead to wonderful surprises, and some of my highest-rated books have been found through this adventurous approach.
+                            <br><br>
+                            My passion for reading began in middle school when my sister and I would read the same books and discuss them together, creating meaningful conversations and shared experiences. This hobby naturally led me to apply for a position at my local library, and that experience has continued throughout my college years as I now work in the library on my college campus, combining my love for books with professional development.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Hiking</h2>
+                <div class="card">
+                    <div class="hobby-container">
+                        <div class="hobby-text">
+                            <strong>Hiking</strong> offers me the perfect opportunity to connect with nature and find peace in the great outdoors. Whenever I have the chance to experience beautiful weather on a scenic trail, I always embrace it wholeheartedly. Being surrounded by nature brings me genuine happiness and a deep sense of relaxation that's hard to find elsewhere.
+                            <br><br>
+                            This activity has become a cherished family tradition, as we all share a love for hiking and make it a priority during our travels. One of my most memorable hiking experiences was on the <strong>Silver Creek Trail at Jay Cooke State Park</strong>, which left a lasting impression on me. Hiking will always hold a special place in my life as a reliable stress-reliever and a healthy activity I can continue to enjoy throughout my lifetime.
+                        </div>
+                        <img src="media/hiking hobby picture.jpg" alt="Group of three hikers walking along a forest path surrounded by trees." class="hobby-image">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        
+    </div>
+</body>
+</html>
