@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addison Manley - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafbfc;
+            color: #2c3e50;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+            min-height: 100vh;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #bdc3c7;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .header .title {
+            font-size: 1.1rem;
+            color: #ecf0f1;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .main-content {
+            padding: 4rem 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .content-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            border: 1px solid #e8ecf0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #2980b9, #1f5f8b);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 0;
+            padding: 0;
+            background: #34495e;
+        }
+
+        .nav-button {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .nav-button.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-bottom-color: #3498db;
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+            padding: 2rem 0;
+        }
+
+        .profile-image {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .welcome-video-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 3px solid #ffffff;
+        }
+
+        .welcome-video {
+            width: 400px;
+            height: 320px;
+            border: none;
+            border-radius: 12px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .profile-photo {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #ffffff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .hobby-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+        }
+
+        .hobby-image {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-image:hover {
+            transform: scale(1.02);
+        }
+
+        .hobby-text {
+            flex: 1;
+            font-size: 1.05rem;
+            color: #495057;
+            line-height: 1.6;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .intro-text strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header-section {
+                padding: 2rem 1rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .profile-photo {
+                width: 280px;
+                height: 280px;
+            }
+
+            .hero-section {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .welcome-video {
+                width: 300px;
+                height: 240px;
+            }
+
+            .hobby-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hobby-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navigation">
+            <a href="index.html" class="nav-button active">Home</a>
+            <a href="hobbies.html" class="nav-button">Hobbies</a>
+            <a href="discover.html" class="nav-button">Discover</a>
+            <a href="resume.html" class="nav-button">Resume</a>
+            <a href="career.html" class="nav-button">Career Interests</a>
+            <a href="game.html" class="nav-button">Game</a>
+        </nav>
+
+        <header class="header-section">
+            <div class="header">
+                <div class="title">Professional Portfolio</div>
+                <h1>Addison Manley</h1>
+                <div class="subtitle">Accounting Student | University of Minnesota Duluth</div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="hero-section">
+                <div class="profile-image">
+                    <img src="media/home page photo.jpg" alt="Addison Manley smiling in a floral dress while sitting outdoors in a grassy field." class="profile-photo">
+                </div>
+                <div class="welcome-video-container">
+                    <iframe src="welcomevideo.html" class="welcome-video" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2>About Me</h2>
+                <div class="card">
+                    <p class="intro-text">
+                        Hello, my name is <strong>Addison Manley</strong>. I grew up in Stewartville, a small city in Southern Minnesota, where I developed a strong foundation in academics and community involvement. I graduated high school with <strong>special honors</strong> and was a proud member of the <strong>National Honor Society</strong>. 
+                        <br><br>
+                        Currently, I am an undergraduate student at the <strong>University of Minnesota Duluth</strong> maintaining a <strong>4.0 GPA</strong> while pursuing a <strong>Bachelor of Accounting</strong>. My academic excellence and dedication to my studies reflect my commitment to professional growth and excellence in the field of accounting.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Personal Interests</h2>
+                <div class="card">
+                    <div class="hobby-container">
+                        <div class="hobby-text">
+                            <strong>Tennis</strong> has been a significant part of my life and personal development. I played <strong>varsity tennis throughout high school</strong>, and it was my favorite season of the school year. The sport taught me discipline, strategic thinking, and the importance of teamwork. I continue to play casually with friends and family whenever possible, as it brings me joy and helps maintain a healthy work-life balance.
+                        </div>
+                        <img src="media/tennis hobby picture for home page.jpg" alt="Two tennis rackets and two tennis balls on a court." class="hobby-image">
+                    </div>
+                    
+                    <div class="hobby-container">
+                        <img src="media/reading hobby picture for home page.jpg" alt="An open book with eyeglasses resting on its pages." class="hobby-image">
+                        <div class="hobby-text">
+                            <strong>Reading</strong> is another passion that enriches my personal and intellectual life. I enjoy exploring various fiction genres, with a particular fondness for <strong>mystery and thriller novels</strong>. When I discover a compelling book in this genre, it becomes nearly impossible to put down. This hobby enhances my analytical thinking skills and provides valuable mental stimulation outside of my academic pursuits.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
+
