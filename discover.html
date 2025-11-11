@@ -179,6 +179,48 @@
         </header>
 
         <div class="main-content">
+            <style>
+                /* Inline, page-specific styles for the video block */
+                .video-section {
+                    margin-bottom: 3rem;
+                }
+                .video-container {
+                    display: flex;
+                    justify-content: center;
+                }
+                .video-container video {
+                    width: 400px;
+                    height: 320px;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+                    border: 1px solid #e8ecf0;
+                    object-fit: contain;
+                    background: #000;
+                }
+                @media (max-width: 768px) {
+                    .video-container video {
+                        width: 300px;
+                        height: 240px;
+                    }
+                }
+                .video-credit {
+                    text-align: center;
+                    margin-top: 0.75rem;
+                    font-size: 0.95rem;
+                    color: #7f8c8d;
+                }
+            </style>
+
+            <section class="content-section video-section">
+                <div class="video-container">
+                    <video controls preload="metadata" src="videos/UMD Marketing Video.mov">
+                        Your browser does not support the video tag. You can
+                        <a href="videos/UMD Marketing Video.mov">download the video</a> instead.
+                    </video>
+                </div>
+                <div class="video-credit">Video Credit: Addison Manley, Danica Silcox, Lauren Sisco</div>
+            </section>
+
             <section class="content-section">
                 <h2>Why I chose UMD</h2>
                 <div class="card">
