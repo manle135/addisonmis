@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover - Addison Manley</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafbfc;
+            color: #2c3e50;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+            min-height: 100vh;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 0;
+            padding: 0;
+            background: #34495e;
+        }
+
+        .nav-button {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .nav-button.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-bottom-color: #3498db;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #bdc3c7;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .header .title {
+            font-size: 1.1rem;
+            color: #ecf0f1;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .main-content {
+            padding: 4rem 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .content-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            border: 1px solid #e8ecf0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #495057;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .header-section {
+                padding: 2rem 1rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <nav class="navigation">
+            <a href="index.html" class="nav-button">Home</a>
+            <a href="hobbies.html" class="nav-button">Hobbies</a>
+            <a href="discover.html" class="nav-button active">Discover</a>
+            <a href="resume.html" class="nav-button">Resume</a>
+            <a href="career.html" class="nav-button">Career Interests</a>
+            <a href="game.html" class="nav-button">Game</a>
+        </nav>
+
+        <header class="header-section">
+            <div class="header">
+                <div class="title">Discover</div>
+                <h1>Discover UMD</h1>
+                <div class="subtitle">Insights about UMD and Duluth</div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <style>
+                /* Inline, page-specific styles for the video block */
+                .video-section {
+                    margin-bottom: 3rem;
+                }
+                .video-container {
+                    display: flex;
+                    justify-content: center;
+                }
+                .video-container video {
+                    width: 400px;
+                    height: 320px;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+                    border: 1px solid #e8ecf0;
+                    object-fit: contain;
+                    background: #000;
+                }
+                @media (max-width: 768px) {
+                    .video-container video {
+                        width: 300px;
+                        height: 240px;
+                    }
+                }
+                .video-credit {
+                    text-align: center;
+                    margin-top: 0.75rem;
+                    font-size: 0.95rem;
+                    color: #7f8c8d;
+                }
+            </style>
+
+            <section class="content-section video-section">
+                <div class="video-container">
+                    <video controls preload="metadata" src="videos/UMD Marketing Video (1) (1).mov">
+                        Your browser does not support the video tag. You can
+                        <a href="videos/UMD Marketing Video.mov">download the video</a> instead.
+                    </video>
+                </div>
+                <div class="video-credit">Video Credit: Addison Manley, Danica Silcox, Lauren Sisco</div>
+            </section>
+
+            <section class="content-section">
+                <h2>Why I chose UMD</h2>
+                <div class="card">
+                    <p class="intro-text">
+                        I chose to attend the University of Minnesota Duluth because I was drawn to its welcoming and well-designed campus. I appreciate that the entire campus is connected, which is especially convenient during the colder months. Additionally, UMD’s size offers the ideal balance—not too large and not too small—allowing for a strong sense of community while still providing ample opportunities. I was also impressed by the university’s highly regarded business school, which I believe will support my academic and professional success.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>What I like about Duluth and the Surrounding Area</h2>
+                <div class="card">
+                    <p class="intro-text">
+                        Duluth is a beautiful city with many remarkable sights and activities to enjoy. I especially appreciate being close to Lake Superior and having the opportunity to take in its stunning views throughout the city. The surrounding areas also offer plenty to explore, including scenic state parks such as Jay Cooke and local favorites like Betty’s Pies. The Duluth community is welcoming, and the people here are kind and supportive.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Personal Experiences and Campus Highlights</h2>
+                <div class="card">
+                    <p class="intro-text">
+                        Some of my favorite places on campus include the Kathryn A. Martin Library and the Kirby Student Center. The library provides a wide range of resources to support students academically and offers an excellent environment for studying. The Kirby Student Center is another favorite spot—it’s a welcoming place to connect with friends while also providing a comfortable atmosphere to focus on coursework. A personal experience I value deeply is the academic growth I’ve experienced at the Labovitz School of Business and Economics. I initially entered UMD as a marketing major, but through the guidance and support of my professors and advisors, I discovered that accounting better aligns with my interests and long-term goals.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
+
+
