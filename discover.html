@@ -42,6 +42,8 @@
             margin-bottom: 0;
             padding: 0;
             background: #34495e;
+            position: relative;
+            flex-wrap: wrap;
         }
 
         .nav-button {
@@ -54,6 +56,7 @@
             font-size: 0.95rem;
             letter-spacing: 0.02em;
             border-bottom: 3px solid transparent;
+            white-space: nowrap;
         }
 
         .nav-button:hover {
@@ -65,6 +68,19 @@
             background: rgba(255, 255, 255, 0.1);
             color: white;
             border-bottom-color: #3498db;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 1rem;
+            position: absolute;
+            right: 0;
+            top: 0;
         }
 
         .header h1 {
@@ -139,6 +155,17 @@
             line-height: 1.8;
         }
 
+        @media (max-width: 992px) {
+            .navigation {
+                flex-wrap: wrap;
+            }
+
+            .nav-button {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-section {
                 padding: 2rem 1rem;
@@ -152,8 +179,72 @@
                 font-size: 2.5rem;
             }
 
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .header .title {
+                font-size: 0.9rem;
+            }
+
             .content-section h2 {
                 font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            .navigation {
+                flex-direction: column;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .navigation.active {
+                max-height: 500px;
+            }
+
+            .nav-button {
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .main-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 1.2rem;
             }
         }
     </style>
@@ -161,7 +252,8 @@
 </head>
 <body>
     <div class="container">
-        <nav class="navigation">
+        <nav class="navigation" id="mainNav">
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
             <a href="index.html" class="nav-button">Home</a>
             <a href="hobbies.html" class="nav-button">Hobbies</a>
             <a href="discover.html" class="nav-button active">Discover</a>
@@ -191,6 +283,7 @@
                 .video-container video {
                     width: 400px;
                     height: 320px;
+                    max-width: 100%;
                     border-radius: 12px;
                     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
                     border: 1px solid #e8ecf0;
@@ -199,8 +292,15 @@
                 }
                 @media (max-width: 768px) {
                     .video-container video {
-                        width: 300px;
-                        height: 240px;
+                        width: 100%;
+                        max-width: 400px;
+                        height: auto;
+                        aspect-ratio: 5/4;
+                    }
+                }
+                @media (max-width: 480px) {
+                    .video-container video {
+                        max-width: 100%;
                     }
                 }
                 .video-credit {
@@ -249,6 +349,27 @@
             </section>
         </div>
     </div>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                this.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            // Close menu when clicking on a nav link
+            const navButtons = mainNav.querySelectorAll('.nav-button');
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                });
+            });
+        }
+    </script>
 </body>
 </html>
 
