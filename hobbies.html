@@ -44,6 +44,7 @@
             background: #34495e;
             position: relative;
             flex-wrap: wrap;
+            min-height: 50px;
         }
 
         .nav-button {
@@ -57,6 +58,7 @@
             letter-spacing: 0.02em;
             border-bottom: 3px solid transparent;
             white-space: nowrap;
+            display: block;
         }
 
         .nav-button:hover {
@@ -75,12 +77,18 @@
             background: transparent;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             position: absolute;
             right: 0;
             top: 0;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .header h1 {
@@ -241,20 +249,25 @@
 
             .navigation {
                 flex-direction: column;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
+                align-items: stretch;
             }
 
-            .navigation.active {
-                max-height: 500px;
-            }
-
-            .nav-button {
-                padding: 1rem;
+            .navigation .nav-button {
+                display: none;
+                padding: 1rem 1.5rem;
                 width: 100%;
-                text-align: center;
+                text-align: left;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-left: 3px solid transparent;
+            }
+
+            .navigation.active .nav-button {
+                display: block;
+            }
+
+            .navigation .nav-button.active {
+                border-left-color: #3498db;
+                border-bottom-color: rgba(255, 255, 255, 0.1);
             }
 
             .mobile-menu-toggle {
